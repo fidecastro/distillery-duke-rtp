@@ -1,0 +1,336 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 416592646304933,
+      "steps": 9,
+      "cfg": 2,
+      "sampler_name": "lcm",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "42",
+        0
+      ],
+      "positive": [
+        "36",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "MOHAWK_v18VAEBaked.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": [
+        "19",
+        0
+      ],
+      "height": [
+        "20",
+        0
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "23",
+        0
+      ],
+      "clip": [
+        "28",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": [
+        "30",
+        0
+      ],
+      "clip": [
+        "28",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "19": {
+    "inputs": {
+      "Number": "1344"
+    },
+    "class_type": "Int",
+    "_meta": {
+      "title": "Width\n"
+    }
+  },
+  "20": {
+    "inputs": {
+      "Number": "768"
+    },
+    "class_type": "Int",
+    "_meta": {
+      "title": "Height\n"
+    }
+  },
+  "23": {
+    "inputs": {
+      "String": "Idris Elba in a webcam, photograph, Sony Alpha 7iii"
+    },
+    "class_type": "String",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "25": {
+    "inputs": {
+      "lora_name": "lcm_lora_sdxl.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "26": {
+    "inputs": {
+      "lora_name": "sdxl_photography.safetensors",
+      "strength_model": 0,
+      "strength_clip": 0,
+      "model": [
+        "25",
+        0
+      ],
+      "clip": [
+        "25",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "27": {
+    "inputs": {
+      "lora_name": "sdxl_nurlens.safetensors",
+      "strength_model": 0,
+      "strength_clip": 0,
+      "model": [
+        "26",
+        0
+      ],
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "28": {
+    "inputs": {
+      "lora_name": "sdxl_wowifier.safetensors",
+      "strength_model": 0,
+      "strength_clip": 0,
+      "model": [
+        "27",
+        0
+      ],
+      "clip": [
+        "27",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "30": {
+    "inputs": {
+      "String": "nsfw, worst quality, bad quality, bad, sexual, erotic"
+    },
+    "class_type": "String",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "32": {
+    "inputs": {
+      "select_webcam": 0
+    },
+    "class_type": "CaptureWebcam",
+    "_meta": {
+      "title": "Capture Webcam"
+    }
+  },
+  "33": {
+    "inputs": {
+      "low_threshold": 100,
+      "high_threshold": 200,
+      "resolution": 512,
+      "image": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "CannyEdgePreprocessor",
+    "_meta": {
+      "title": "Canny Edge"
+    }
+  },
+  "34": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "width": [
+        "19",
+        0
+      ],
+      "height": [
+        "20",
+        0
+      ],
+      "crop": "disabled",
+      "image": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  },
+  "35": {
+    "inputs": {
+      "control_net_name": "controlnet-canny-sdxl-1.0_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "36": {
+    "inputs": {
+      "strength": 0.5,
+      "conditioning": [
+        "6",
+        0
+      ],
+      "control_net": [
+        "35",
+        0
+      ],
+      "image": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "ControlNetApply",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "39": {
+    "inputs": {
+      "sharpen_radius": 1,
+      "sigma": 1,
+      "alpha": 0.1,
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "ImageSharpen",
+    "_meta": {
+      "title": "ImageSharpen"
+    }
+  },
+  "42": {
+    "inputs": {
+      "sampling": "lcm",
+      "zsnr": false,
+      "model": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingDiscrete",
+    "_meta": {
+      "title": "ModelSamplingDiscrete"
+    }
+  }
+}
